@@ -1,0 +1,26 @@
+﻿@model Authors
+
+
+<form class="container" method="post" asp-controller="Authors" asp-action="Index">
+    <label asp-for="NAME"></label>
+    <input class="form-control" asp-for="NAME"/>
+    <br />
+    <label asp-for="LASTNAME"></label>
+    <input class="form-control" asp-for="LASTNAME" />
+    <br />
+    <label asp-for="BIRTHDATE"></label>
+    <input class="form-control" asp-for="BIRTHDATE" />
+    <br />
+    <label asp-for="MAIL"></label>
+    <input class="form-control" asp-for="MAIL" type="email" />
+    <br />
+    <label asp-for="ISACTIVE">IS ACTIVE?</label>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" asp-for="ISACTIVE">
+        <label class="btn btn-outline-primary" for="btncheck1">ACTIVE</label>
+    </div>
+    <br />
+    <br />
+    <button class="btn btn-dark" type="submit">SAVED</button>
+    <a class="btn btn-outline-dark" asp-controller="Authors" asp-action="GetList">LIST</a>
+</form>

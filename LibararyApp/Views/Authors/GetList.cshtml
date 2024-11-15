@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Authors>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>LASTNAME</th>
+            <th>MAIL</th>
+            <th>BIRTHDATE</th>
+            <th>CREATE DATE</th>
+            <th>UPDATE DATE</th>
+            <th>IS ACTIVE</th>
+            <th>UPDATE</th>
+            <th>DELETE</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.NAME</td>
+                <td>@item.LASTNAME</td>
+                <td>@item.MAIL</td>
+                <td>@item.BIRTHDATE.ToShortDateString()</td>
+                <td>@item.CREATEDDATE.ToShortDateString()</td>
+                <td>@item.UPDATEDDATE.ToShortDateString()</td>
+                @if (item.ISACTIVE)
+                {
+                    <td>ACTIVE</td>
+                }
+                else
+                {
+                    <td>NOT ACTIVE</td>
+                }
+                <td><a class="btn btn-warning" asp-controller="Authors" asp-action="Update" asp-route-ID="@item.ID">UPDATE</a></td>
+                <td><a class="btn btn-danger" asp-controller="Authors" asp-action="Delete" asp-route-ID="@item.ID">DELETE</a></td>
+                
+            </tr>
+        }
+       
+
+        </tbody>
+
+    </table>
+
+<a class="btn btn-outline-dark" asp-controller="Authors" asp-action="Index">BACK</a>

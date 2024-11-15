@@ -1,0 +1,24 @@
+﻿@model Books
+
+<form class="container" asp-action="UPDATE" asp-controller="Books" method="post">
+    <label asp-for="NAME"></label>
+    <input class="form-control" asp-for="NAME" />
+    <br />
+    <label asp-for="PAGE"></label>
+    <input class="form-control" asp-for="PAGE" />
+    <br />
+    <div>
+        <label>SELECTED AUTHOR:</label>
+        @Html.DropDownList("AUTHORSID", ViewBag.Authors as List<SelectListItem>, "Yazar Seçiniz", new { @class = "form-control" })
+    </div>
+    <br />
+    <label asp-for="ISACTIVE">ACTIVE</label>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" asp-for="ISACTIVE">
+        <label class="btn btn-outline-primary" for="btncheck1">ACTIVE</label>
+    </div>
+    <br />
+    <br />
+    <button class="btn btn-dark" type="submit">UPDATE</button>
+    <a class="btn btn-outline-dark" asp-action="GetList" asp-controller="Books">BACK</a>
+</form>
